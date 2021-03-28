@@ -8,6 +8,7 @@
 #define MX_LENGTH 1200
 #define ITERATION 500
 #define PRE 3
+#define MX_SCORE -30000
 
 void hill_climbing(void);
 double calc_fitness(void);
@@ -25,7 +26,7 @@ char key_answer[ALPHABET];
 char key_pre[PRE][ALPHABET];
 
 double score_parent;
-double score_max = -30000; // fitenss function¿¡ µû¶ó ¹Ù²ñ
+double score_max = MX_SCORE; // fitenss function¿¡ µû¶ó ¹Ù²ñ
 double score_pre[PRE];
 double quadgrams[ALPHABET][ALPHABET][ALPHABET][ALPHABET];
 
@@ -67,7 +68,7 @@ void hill_climbing(void) {
 
 	for (int l = 0; l < ITERATION; l++) {
 		generate_random_key();
-		score_current = score_parent = -30000; // fitenss function¿¡ µû¶ó ¹Ù²ñ
+		score_current = score_parent = MX_SCORE; // fitenss function¿¡ µû¶ó ¹Ù²ñ
 		for (int j = 0; j < ALPHABET; j++) {
 			for (int i = j + 1; i < ALPHABET; i++) {
 				key_current[j] = key_parent[i];
