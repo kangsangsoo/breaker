@@ -26,7 +26,7 @@ char key_answer[ALPHABET];
 char key_pre[PRE][ALPHABET];
 
 double score_parent;
-double score_max = MX_SCORE; // fitenss function¿¡ µû¶ó ¹Ù²ñ
+double score_max = MX_SCORE; // dependent on fitenss function
 double score_pre[PRE];
 double quadgrams[ALPHABET][ALPHABET][ALPHABET][ALPHABET];
 
@@ -68,7 +68,7 @@ void hill_climbing(void) {
 
 	for (int l = 0; l < ITERATION; l++) {
 		generate_random_key();
-		score_current = score_parent = MX_SCORE; // fitenss function¿¡ µû¶ó ¹Ù²ñ
+		score_current = score_parent = MX_SCORE; // dependent on fitenss function
 		for (int j = 0; j < ALPHABET; j++) {
 			for (int i = j + 1; i < ALPHABET; i++) {
 				key_current[j] = key_parent[i];
@@ -77,12 +77,12 @@ void hill_climbing(void) {
 				decrypt();
 
 				score_current = calc_fitness();
-				if (score_current > score_parent) {  // fitenss function¿¡ µû¶ó ¹Ù²ñ
+				if (score_current > score_parent) {  // dependent on fitenss function
 					score_parent = score_current;
 					for (int k = 0; k < ALPHABET; k++) {
 						key_parent[k] = key_current[k];
 					}
-					if (score_max <= score_parent) {  // fitenss function¿¡ µû¶ó ¹Ù²ñ
+					if (score_max <= score_parent) {  // dependent on fitenss function
 						for (int k = 1; k < PRE; k++) {
 							for (int k1 = 0; k1 < ALPHABET; k1++) {
 								key_pre[k][k1] = key_pre[k - 1][k1];
