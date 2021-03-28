@@ -1,3 +1,3 @@
 # breaker
 
-you need ciphertext.txt in your folder
+You need ciphertext.txt in your folder.
